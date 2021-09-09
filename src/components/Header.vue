@@ -4,7 +4,7 @@
       <section class="menu-container">
         <img src="../assets/logo.png" alt="logo" />
         <div class="select-genre">
-          <select name="genre" v-model="selectGenre">
+          <select name="genre">
             <option value="all">Tutti</option>
           </select>
         </div>
