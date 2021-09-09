@@ -18,7 +18,7 @@ export default {
       discs: [],
     };
   },
-  props: ["genre"],
+  props: ["genre", "author"],
   computed: {
     sortedDiscs() {
       const sortedArr = [...this.discs];
@@ -27,9 +27,12 @@ export default {
       });
     },
     filteredDiscs() {
-      if (this.genre === "all") return this.sortedDiscs;
+      if (this.genre === "all" && this.author === "all")
+        return this.sortedDiscs;
       return this.sortedDiscs.filter(
-        (disc) => disc.genre.toLowerCase() === this.genre
+        (disc) =>
+          disc.genre.toLowerCase() === this.genre ||
+          disc.author.toLowerCase() === this.author
       );
     },
   },

@@ -15,6 +15,23 @@
             <option value="jazz">Jazz</option>
             <option value="metal">Metal</option>
           </select>
+          <select
+            name="author"
+            v-model="selectAuthor"
+            @change="$emit('searchAuthor', selectAuthor)"
+          >
+            <option value="all">Tutti</option>
+            <option value="deep purple">Deep Purple</option>
+            <option value="michael jacjson">Michael Jacjson</option>
+            <option value="bon jovi">Bon Jovi</option>
+            <option value="metallica">Metallica</option>
+            <option value="queen">Queen</option>
+            <option value="sting">Sting</option>
+            <option value="dave weckl">Dave Weckl</option>
+            <option value="iron maiden">Iron Maiden</option>
+            <option value="eric clapton">Eric Clapton</option>
+            <option value="steve gadd band">Steve Gadd Band</option>
+          </select>
         </div>
       </section>
     </div>
@@ -27,6 +44,7 @@ export default {
   data() {
     return {
       selectGenre: "all",
+      selectAuthor: "all",
     };
   },
 };
@@ -54,6 +72,7 @@ header {
 select {
   width: 200px;
   height: 30px;
+  margin: 0 10px;
   background-color: #7c8fa1;
 }
 </style>

@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <Header @search="searchAlbums" />
-    <main class="container"><Albums :genre="genre" /></main>
+    <Header @search="searchAlbums" @searchAuthor="searchAuthor" />
+    <main class="container"><Albums :genre="genre" :author="author" /></main>
   </div>
 </template>
 
@@ -18,11 +18,15 @@ export default {
   data() {
     return {
       genre: "all",
+      author: "all",
     };
   },
   methods: {
     searchAlbums(genre) {
       this.genre = genre;
+    },
+    searchAuthor(author) {
+      this.author = author;
     },
   },
 };
