@@ -4,8 +4,16 @@
       <section class="menu-container">
         <img src="../assets/logo.png" alt="logo" />
         <div class="select-genre">
-          <select name="genre">
+          <select
+            name="genre"
+            v-model="selectGenre"
+            @change="$emit('search', selectGenre)"
+          >
             <option value="all">Tutti</option>
+            <option value="rock">Rock</option>
+            <option value="pop">Pop</option>
+            <option value="jazz">Jazz</option>
+            <option value="metal">Metal</option>
           </select>
         </div>
       </section>
@@ -16,6 +24,11 @@
 <script>
 export default {
   name: "Header",
+  data() {
+    return {
+      selectGenre: "all",
+    };
+  },
 };
 </script>
 

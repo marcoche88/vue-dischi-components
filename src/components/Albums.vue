@@ -1,6 +1,6 @@
 <template>
   <section id="album-container">
-    <Card v-for="(disc, index) in discs" :key="index" :disc="disc" />
+    <Card v-for="(disc, index) in filteredDiscs" :key="index" :disc="disc" />
   </section>
 </template>
 
@@ -17,6 +17,21 @@ export default {
     return {
       discs: [],
     };
+  },
+  props: ["genre"],
+  computed: {
+    sortedDiscs() {
+      const sortedArr = [...this.discs];
+      return sortedArr.sort((a, b) => {
+        return a.year - b.year;
+      });
+    },
+    filteredDiscs() {
+      if (this.genre === "all") return this.sortedDiscs;
+      return this.sortedDiscs.filter(
+        (disc) => disc.genre.toLowerCase() === this.genre
+      );
+    },
   },
   created() {
     axios

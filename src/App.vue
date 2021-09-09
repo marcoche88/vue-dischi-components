@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <Header />
-    <main class="container"><Albums /></main>
+    <Header @search="searchAlbums" />
+    <main class="container"><Albums :genre="genre" /></main>
   </div>
 </template>
 
@@ -14,6 +14,16 @@ export default {
   components: {
     Header,
     Albums,
+  },
+  data() {
+    return {
+      genre: "all",
+    };
+  },
+  methods: {
+    searchAlbums(genre) {
+      this.genre = genre;
+    },
   },
 };
 </script>
